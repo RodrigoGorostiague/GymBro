@@ -1,0 +1,53 @@
+table {
+  width: 100%;
+}
+
+tr.example-detail-row {
+  height: 0;
+}
+
+tr.example-element-row:not(.example-expanded-row):hover {
+  background: rgba(0, 213, 291, 0.04);
+}
+
+tr.example-element-row:not(.example-expanded-row):active {
+  background: #efefef;
+}
+
+.example-element-row td {
+  border-bottom-width: 0;
+}
+
+.example-element-detail {
+  overflow: hidden;
+  display: flex;
+}
+
+.start-btn {
+  margin-top: 20px;
+  width: 100%;
+}
+h1{
+  text-align: center;
+  margin-top: 20px;
+}
+.content{
+  width: 60%;
+  margin: 0 auto;
+}
+table{
+  padding: 6px;
+ border: 0.5px solid #ccc;
+ border-radius: 16px;
+}
+.example-container mat-form-field + mat-form-field {
+  margin-left: 8px;
+}
+mat-form-fiel{
+  width: 10px;
+}
+.edit-btn{
+  margin-top: auto;
+  margin-bottom: auto;
+  margin-left: 6px;
+}

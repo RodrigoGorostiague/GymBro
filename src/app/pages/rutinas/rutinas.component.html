@@ -1,0 +1,10 @@
+  <h1>Meses</h1>
+  <mat-grid-list cols="3" rowHeight="2:1">
+    @for (rutina of rutinas(); track $index) {
+    <mat-grid-tile
+    [routerLink]="['detalle', $index]"
+    ><h2>{{rutina.mes|date: 'MMMM'}}</h2></mat-grid-tile>
+    }
+  </mat-grid-list>
+
+
