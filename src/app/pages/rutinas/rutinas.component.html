@@ -3,8 +3,9 @@
     @for (rutina of rutinas(); track $index) {
     <mat-grid-tile
     [routerLink]="['detalle', $index]"
-    ><h2>{{rutina.mes|date: 'MMMM'}}</h2></mat-grid-tile>
+    ><h2>{{rutina.mes|date: 'MMMM'}}-{{rutina.mes|date: 'YY'}}</h2></mat-grid-tile>
     }
   </mat-grid-list>
+
 
 

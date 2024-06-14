@@ -19,3 +19,9 @@
   position: absolute;
   top: 50%;
 }
+.links{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-top: 20px;
+}

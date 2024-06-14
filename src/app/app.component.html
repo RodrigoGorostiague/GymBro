@@ -1,9 +1,14 @@
 <mat-drawer-container class="example-container" autosize>
   <mat-drawer #drawer class="example-sidenav" mode="side">
-    <p>Gym Bro</p>
+    <div class="links">
+      <p>Gym Bro</p>
     <button (click)="drawer.toggle(); navigate()" mat-raised-button>
-      Rutina
+      Ver Rutinas
     </button>
+    <button (click)="drawer.toggle()" [routerLink]="['/crear-rutina']" routerLinkActive="router-link-active"  mat-raised-button>
+      Crear Rutina
+    </button>
+    </div>
   </mat-drawer>
 
   <div class="arrow">

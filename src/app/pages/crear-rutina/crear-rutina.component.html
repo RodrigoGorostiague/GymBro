@@ -1,0 +1,56 @@
+<div class="conteiner">
+
+<mat-form-field>
+  <mat-label>Mes y Año</mat-label>
+  <input matInput [matDatepicker]="dp" [formControl]="date">
+  <mat-hint>MM/YYYY</mat-hint>
+  <mat-datepicker-toggle matIconSuffix [for]="dp"></mat-datepicker-toggle>
+  <mat-datepicker touchUi
+                  #dp
+                  startView="multi-year"
+                  (monthSelected)="setMonthAndYear($event, dp)"
+                  panelClass="example-month-picker">
+  </mat-datepicker>
+</mat-form-field>
+<div class="ejercicos">
+  <mat-form-field>
+    <mat-label>Ejercicio</mat-label>
+    <input matInput #nombreInput>
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Detalle de Ejercicio</mat-label>
+    <textarea matInput #detalleInput></textarea>
+  </mat-form-field>
+<div class="esp">
+
+  <mat-form-field>
+    <mat-label>Repeticiones</mat-label>
+    <input matInput #repInput>
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Series</mat-label>
+    <input matInput #seriesInput>
+  </mat-form-field>
+
+
+  <mat-form-field>
+    <mat-label>Descanso</mat-label>
+    <input matInput #descansoInput>
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Peso Efectivo</mat-label>
+    <input matInput #pesoInput>
+  </mat-form-field>
+</div>
+<button (click)="add(nombreInput.value, detalleInput.value, repInput.value, seriesInput.value, descansoInput.value, pesoInput.value)" mat-flat-button>Agregar</button>
+</div>
+</div>
+@if (rutina()?.ejercicios !== undefined){
+  @for (ejercico of rutina()?.ejercicios ; track $index) {
+    <p>{{ejercico.nombre}}</p>
+  }
+
+}

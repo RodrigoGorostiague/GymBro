@@ -1,0 +1,21 @@
+<h2 mat-dialog-title>{{exercises()[counter()].nombre}} </h2>
+<mat-dialog-content>
+  <p>{{counterDescanso}} / {{exercises()[counter()].series}} series completadas.</p>
+  <p>{{exercises()[counter()].repeticiones}} repeticiones.</p>
+  <p>{{exercises()[counter()].peso}}Kg.</p>
+  <p>Descanso de {{exercises()[counter()].descanso}}`</p>
+  <mat-progress-spinner
+  class="example-margin"
+  [value]="descansoP()">
+</mat-progress-spinner>
+</mat-dialog-content>
+<mat-dialog-actions>
+  @if (counter() != 0) {
+    <button mat-button (click)="back()" cdkFocusInitial>Anterior</button>
+  }
+  <button mat-button (click)="onNoClick()">Cancelar</button>
+  <button mat-button (click)="descanso()" cdkFocusInitial>Descanso</button>
+  @if (counter() != exercises().length - 1){
+    <button mat-button (click)="next()" cdkFocusInitial>Siguiente</button>
+  }
+</mat-dialog-actions>

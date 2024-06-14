@@ -1,0 +1,20 @@
+.conteiner{
+    margin: auto;
+    margin-top: 36px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    width: 40%;
+}
+.esp{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 10px;
+}
+
+.ejercicos{
+  display: grid;
+  border: solid 2px rgba(0, 221, 209, 0.5);
+  padding: 16px;
+  border-radius: 16px;
+}

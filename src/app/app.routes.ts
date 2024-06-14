@@ -8,5 +8,9 @@ export const routes: Routes = [
   {
     path: 'rutinas/detalle/:index',
     loadComponent: () => import('./pages/rutina/rutina.component').then(m => m.RutinaComponent)
+  },
+  {
+    path: 'crear-rutina',
+    loadComponent: () => import('./pages/crear-rutina/crear-rutina.component').then(m => m.CrearRutinaComponent)
   }
 ];

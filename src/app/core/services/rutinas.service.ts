@@ -107,7 +107,8 @@ export class RutinasService {
 ];
 
   getExercises(index: number): Exercise[] {
-    return this.rutina[index].ejercicios;
+
+    return this.rutina[index].ejercicios ;
   }
 
   deleteExercise(index: number): void {
