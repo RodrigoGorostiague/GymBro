@@ -4,10 +4,17 @@
   <p>{{exercises()[counter()].repeticiones}} repeticiones.</p>
   <p>{{exercises()[counter()].peso}}Kg.</p>
   <p>Descanso de {{exercises()[counter()].descanso}}`</p>
-  <mat-progress-spinner
-  class="example-margin"
-  [value]="descansoP()">
-</mat-progress-spinner>
+  <div class="spinner">
+    <mat-progress-spinner
+      class="example-margin"
+      [color]="color()"
+      [value]="descansoP()">
+    </mat-progress-spinner>
+    <div class="spinner-text">
+      <h2>{{descansoTime()}}`</h2>
+    </div>
+  </div>
+
 </mat-dialog-content>
 <mat-dialog-actions>
   @if (counter() != 0) {

@@ -15,6 +15,8 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import { MatButtonModule } from '@angular/material/button';
 import { Rutina } from '../../shared/models/rutinas.model';
 import { Exercise } from '../../shared/models/exercise.model';
+import { DatePipe, TitleCasePipe } from '@angular/common';
+import { MatTableModule } from '@angular/material/table';
 
 const moment = _rollupMoment || _moment;
 
@@ -47,7 +49,10 @@ export const MY_FORMATS = {
     MatDatepickerModule,
     FormsModule,
     ReactiveFormsModule,
-    MatButtonModule
+    MatButtonModule,
+    DatePipe,
+    TitleCasePipe,
+    MatTableModule
   ],
   changeDetection: ChangeDetectionStrategy.OnPush,
   templateUrl: './crear-rutina.component.html',
@@ -55,7 +60,8 @@ export const MY_FORMATS = {
 })
 export class CrearRutinaComponent {
   readonly date = new FormControl(moment());
-  rutina = signal<Rutina| null>(null);
+  rutina = signal<Rutina>({ mes: undefined, ejercicios: [] });
+  displayedColumns: string[] = ['nombre', 'repeticiones', 'series', 'descanso', 'peso'];
 
   setMonthAndYear(normalizedMonthAndYear: Moment, datepicker: MatDatepicker<Moment>) {
     const ctrlValue = this.date.value ?? moment();
@@ -66,13 +72,6 @@ export class CrearRutinaComponent {
     console.log(this.date.value)
   }
   add(nombreInput:string, detalleInput:string, repInput:string, seriesInput:string, descansoInput:string, pesoInput:string){
-    if(!this.rutina()==null){
-      this.rutina.set({
-        mes: this.date.value?.toDate() ?? new Date(),
-        ejercicios: []
-      });
-
-    }
     const ejercicio: Exercise = {
       nombre: nombreInput,
       detalle: detalleInput,
@@ -81,7 +80,12 @@ export class CrearRutinaComponent {
       descanso: parseInt(descansoInput),
       peso: parseInt(pesoInput),
     }
-    this.rutina()?.ejercicios?.push(ejercicio);
+      this.rutina.update((rutina) => {
+
+          rutina.mes = this.date.value?.toDate();
+          rutina?.ejercicios.push(ejercicio);
+        return rutina;
+      });
     console.log(this.rutina());
   }
 

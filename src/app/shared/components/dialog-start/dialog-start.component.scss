@@ -1,0 +1,12 @@
+.spinner {
+  position: relative;
+  display: inline-block;
+}
+
+.spinner-text {
+  position: absolute;
+  top: 60%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 16px; /* Ajusta el tamaño de fuente según tus necesidades */
+}

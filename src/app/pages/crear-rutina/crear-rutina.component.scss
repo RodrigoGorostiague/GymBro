@@ -1,10 +1,9 @@
 .conteiner{
-    margin: auto;
-    margin-top: 36px;
     display: flex;
     justify-content: center;
     flex-direction: column;
-    width: 40%;
+    width: 75%;
+    margin-left: auto;
 }
 .esp{
   display: grid;
@@ -17,4 +16,19 @@
   border: solid 2px rgba(0, 221, 209, 0.5);
   padding: 16px;
   border-radius: 16px;
+}
+.listaE{
+width: 40%;
+}
+.continerG {
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* Dos columnas iguales */
+  gap: 16px; /* Espacio entre las columnas */
+  margin-bottom: 16px;
+}
+h1{
+  text-align: center;
+}
+h2{
+  text-align:end;
 }

@@ -7,6 +7,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { RutinasService } from '../../../core/services/rutinas.service';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { ThemePalette } from '@angular/material/core';
 
 @Component({
   selector: 'app-dialog-start',
@@ -22,7 +23,7 @@ export class DialogStartComponent {
   rutinaSvc = inject(RutinasService);
   exercises = signal<Exercise[]>([]);
 
-
+  color = signal<ThemePalette>('primary');
   counter = signal(0);
   counterDescanso = 0;
   descansoTime = signal<number>(0);
@@ -44,6 +45,7 @@ export class DialogStartComponent {
 
   descanso() {
     console.log('Descanso');
+    this.color.set('primary');
     this.descansoTime.set(this.exercises()[this.counter()].descanso);
     let descanso = this.exercises()[this.counter()].descanso;
     this.time = 0;
@@ -53,6 +55,11 @@ export class DialogStartComponent {
     this.time++;
     if(this.descansoTime() !== 0) {
     this.descansoTime.update((n) => n - 1);
+    if (this.descansoTime() < 10){
+      this.color.set('warn');
+    }else{
+      this.color.set('primary');
+    }
     }
 
     this.descansoP.set(
